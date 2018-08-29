@@ -103,7 +103,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>F:\Code\mini-caffe\3rdparty\include\openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\include\openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
     </ClCompile>
@@ -142,9 +142,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>F:\Code\mini-caffe\3rdparty\include\openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\include\openblas;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -166,10 +167,12 @@
     <ClCompile Include="layers_c\zq_cnn_innerproduct_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_innerproduct_gemm_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_lrn_32f_align_c.c" />
+    <ClCompile Include="layers_c\zq_cnn_normalize_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_pooling_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_prelu_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_relu_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_resize_32f_align_c.c" />
+    <ClCompile Include="layers_c\zq_cnn_scalaroperation_32f_align_c.c" />
     <ClCompile Include="layers_c\zq_cnn_softmax_32f_align_c.c" />
     <ClCompile Include="math\zq_avx_mathfun.c" />
     <ClCompile Include="math\zq_sse_mathfun.c" />
@@ -197,6 +200,8 @@
     <ClInclude Include="layers_c\zq_cnn_innerproduct_gemm_32f_align_c_raw.h" />
     <ClInclude Include="layers_c\zq_cnn_lrn_32f_align_c.h" />
     <ClInclude Include="layers_c\zq_cnn_lrn_32f_align_c_raw.h" />
+    <ClInclude Include="layers_c\zq_cnn_normalize_32f_align_c.h" />
+    <ClInclude Include="layers_c\zq_cnn_normalize_32f_align_c_raw.h" />
     <ClInclude Include="layers_c\zq_cnn_pooling_32f_align_c.h" />
     <ClInclude Include="layers_c\zq_cnn_pooling_32f_align_c_raw.h" />
     <ClInclude Include="layers_c\zq_cnn_prelu_32f_align_c.h" />
@@ -205,17 +210,25 @@
     <ClInclude Include="layers_c\zq_cnn_relu_32f_align_c_raw.h" />
     <ClInclude Include="layers_c\zq_cnn_resize_32f_align_c.h" />
     <ClInclude Include="layers_c\zq_cnn_resize_32f_align_c_raw.h" />
+    <ClInclude Include="layers_c\zq_cnn_scalaroperation_32f_align_c.h" />
+    <ClInclude Include="layers_c\zq_cnn_scalaroperation_32f_align_c_raw.h" />
     <ClInclude Include="layers_c\zq_cnn_softmax_32f_align_c.h" />
     <ClInclude Include="layers_c\zq_cnn_softmax_32f_align_c_raw.h" />
     <ClInclude Include="math\zq_avx_mathfun.h" />
     <ClInclude Include="math\zq_sse_mathfun.h" />
     <ClInclude Include="ZQ_CNN_BBox.h" />
+    <ClInclude Include="ZQ_CNN_BBoxUtils.h" />
     <ClInclude Include="ZQ_CNN_Defines.h" />
+    <ClInclude Include="ZQ_CNN_DetectorInterface.h" />
     <ClInclude Include="ZQ_CNN_Forward_SSEUtils.h" />
     <ClInclude Include="ZQ_CNN_Layer.h" />
+    <ClInclude Include="ZQ_CNN_MouthDetector.h" />
     <ClInclude Include="ZQ_CNN_MTCNN.h" />
     <ClInclude Include="ZQ_CNN_Net.h" />
+    <ClInclude Include="ZQ_CNN_NSFW.h" />
+    <ClInclude Include="ZQ_CNN_SSD.h" />
     <ClInclude Include="ZQ_CNN_Tensor4D.h" />
+    <ClInclude Include="ZQ_CNN_TextBoxes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

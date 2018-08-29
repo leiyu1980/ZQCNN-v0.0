@@ -3,9 +3,35 @@
 #pragma once
 #include <string.h>
 #include <stdio.h>
+#include <vector>
+#include <map>
 
 namespace ZQ
 {
+	class ZQ_CNN_NormalizedBBox
+	{
+	public:
+		float col1;
+		float col2;
+		float row1;
+		float row2;
+		int label;
+		bool difficult;
+		float score;
+		float size;
+
+		ZQ_CNN_NormalizedBBox()
+		{
+			col1 = col2 = row1 = row2 = 0;
+			label = -1;
+			difficult = false;
+			score = 0;
+			size = 1;
+		}
+	};
+
+	using ZQ_CNN_LabelBBox = std::map<int, std::vector<ZQ_CNN_NormalizedBBox>>;
+
 	class ZQ_CNN_BBox
 	{
 	public:
